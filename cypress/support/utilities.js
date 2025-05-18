@@ -33,10 +33,30 @@ export function createRandomEmail(length) {
 }
 
 export function createRandomPassword(length) {
-    const chars = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789');
-    let password = '';
-    for (let i = 0; i < length; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    const chars = 'abcdefghijklmnopqrstuvwxyz';
+    const uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '123456789';
+    const specials = '+-*/!?#&@_;°€';
+
+    if (length < 4) throw new Error('Password length must be at least 4 characters.');
+
+    let password = [];
+
+    password.push(uppers[Math.floor(Math.random() * uppers.length)]);
+    password.push(numbers[Math.floor(Math.random() * numbers.length)]);
+    password.push(specials[Math.floor(Math.random() * specials.length)]);
+
+    const allChars = chars + uppers + numbers + specials;
+
+    while (password.length < length) {
+        password.push(allChars[Math.floor(Math.random() * allChars.length)]);
     }
-    return password;
+
+    for (let i = password.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [password[i], password[j]] = [password[j], password[i]];
+    }
+
+    return password.join('');
 }
+
