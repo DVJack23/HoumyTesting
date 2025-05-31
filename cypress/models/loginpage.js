@@ -9,6 +9,7 @@ let alertLoginFailed = loginData.alertLoginFailed;
 let buttonRegister = loginData.buttonRegister;
 let headerWelcomePage = loginData.headerWelcomePage;
 let textWelcomeMessage = loginData.textWelcomeMessage;
+let buttonAcceptCookies = loginData.buttonAcceptCookies;
 
 class Loginpage {
     headerLogin = () => cy.contains('h1', headerLogin);
@@ -20,6 +21,7 @@ class Loginpage {
     buttonSubmitFirstLogin = () => cy.get('button[type="submit"]');
     buttonLogout = () => cy.contains('li', buttonLogout);
     buttonRegister = () => cy.contains('a', buttonRegister)
+    buttonAcceptCookies = () => cy.contains('div', buttonAcceptCookies);
     inputEmail = () => cy.get('#email');
     inputPassword = () => cy.get('#password');
     inputFirstName = () => cy.get('#firstName');
@@ -31,7 +33,7 @@ class Loginpage {
 
     loginViaEmail = (email, password) => {
         createStep('Check that login page is loaded');
-        checkUrl('/cs/sign-in');
+        checkUrl('/sign-in');
         this.headerLogin(headerLogin).should('be.visible');
         this.buttonLoginGoogle().should('be.visible');
         this.buttonLoginEmail().should('be.visible');
@@ -69,12 +71,16 @@ class Loginpage {
         createStep('Submit first login form');
         this.buttonSubmitFirstLogin().should('be.visible');
         this.buttonSubmitFirstLogin().click();
-        // TODO ověřit, zda bylo přihlášení dokončeno
+    }
+
+    acceptCookies = () => {
+        this.buttonAcceptCookies().should('be.visible');
+        this.buttonAcceptCookies().click();
     }
 
     checkUserLogin = () => {
         createStep('Check that user is logged in');
-        checkUrl('/cs/dashboard');
+        checkUrl('/dashboard');
         this.dashboardUserPanel().should('be.visible');
         this.dashboardUserPanel().click();
         this.buttonLogout().should('be.visible');
@@ -84,7 +90,7 @@ class Loginpage {
         createStep('Check that alert message is shown');
         this.alertLoginFailed().should('be.visible');
         createStep('Check that user is still on login page');
-        checkUrl('/cs/sign-in');
+        checkUrl('/sign-in');
     }
 }
 

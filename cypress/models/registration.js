@@ -33,13 +33,13 @@ class Registration {
 
     registrationViaEmail = (email, password) => {
         createStep('Check that login page is loaded');
-        checkUrl('/cs/sign-in');
+        checkUrl('/sign-in');
         Loginpage.headerLogin(headerLogin).should('be.visible');
         Loginpage.buttonRegister().should('be.visible');
         createStep('Click the registration button');
         Loginpage.buttonRegister().click();
         createStep('Check that registration page is loaded');
-        checkUrl('/cs/sign-up');
+        checkUrl('/sign-up');
         this.headerRegistration().should('be.visible');
         this.buttonRegistrationEmail().should('be.visible');
         createStep('Click continue with email button');
@@ -74,35 +74,35 @@ class Registration {
         createStep('Return back to login screen');
         this.buttonBackToLogin().should('be.visible');
         this.buttonBackToLogin().click();
-        checkUrl('/cs/sign-in');
+        checkUrl('/sign-in');
     }
 
     checkInvalidEmail = () => {
         createStep('Check that alert message is shown');
         this.alertInvalidEmail().should('be.visible');
         createStep('Check that user is still on registration page');
-        checkUrl('/cs/sign-up');
+        checkUrl('/sign-up');
     }
 
     checkInvalidPassword = () => {
         createStep('Check that alert message is shown');
         this.alertInvalidPassword().should('be.visible');
         createStep('Check that user is still on registration page');
-        checkUrl('/cs/sign-up');
+        checkUrl('/sign-up');
     }
 
     checkMissingPassword = () => {
         createStep('Check that alert message is shown');
         this.alertMissingPassword().should('be.visible');
         createStep('Check that user is still on registration page');
-        checkUrl('/cs/sign-up');
+        checkUrl('/sign-up');
     }
 
     checkFailedRegistration = () => {
         createStep('Check that alert message is shown');
         this.alertRegistrationFailed().should('be.visible');
         createStep('Check that user is still on registration page');
-        checkUrl('/cs/sign-up');
+        checkUrl('/sign-up');
     }
 }
 

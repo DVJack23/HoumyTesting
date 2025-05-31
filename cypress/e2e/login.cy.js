@@ -11,6 +11,7 @@ describe('Login tests for Houmy.cz', () => {
             });
             it('TC-HL01: Login user with valid user details', () => {
                 Loginpage.loginViaEmail(data.userData.validEmail, data.userData.validPassword);
+                Loginpage.acceptCookies();
                 Loginpage.checkUserLogin();
             });
             it('TC-HL02: Login user with invalid email', () => {
@@ -26,6 +27,7 @@ describe('Login tests for Houmy.cz', () => {
                 Registration.returnToLoginPage();
                 Loginpage.loginViaEmail(data.userData.validEmail, data.userData.validPassword);
                 Loginpage.firstLogin();
+                Loginpage.acceptCookies();
                 Loginpage.checkUserLogin();
             })
         })
