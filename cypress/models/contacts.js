@@ -1,6 +1,6 @@
 import {data} from '../support/data.js';
 import Dashboard from '../models/dashboard.js';
-import {checkUrl, createStep, generateValidICO} from "../support/utilities";
+import {checkUrl, createStep, generateValidICO} from "../../../ulovDomovTesting/cypress/support/utilities";
 
 const contactsData = data.houmyData[0].contacts;
 let headerContacts = contactsData.headerContacts;

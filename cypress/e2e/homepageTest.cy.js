@@ -1,7 +1,7 @@
 import {data} from '../support/data.js';
 import Header from '../models/header.js';
 import Homepage from '../models/homepage.js';
-import {catchReq, checkReq, checkUrl, createStep} from "../support/utilities";
+import {catchReq, checkReq, checkUrl, createStep} from "../../../ulovDomovTesting/cypress/support/utilities";
 
 describe('Test suite for Houmy.cz', () => {
     Object.values(data.houmyData).forEach((data) => {

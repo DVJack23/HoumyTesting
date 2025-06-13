@@ -1,4 +1,4 @@
-const {createStep, catchReq, checkReq, checkUrl} = require("../support/utilities");
+const {createStep, catchReq, checkReq, checkUrl} = require("../../../ulovDomovTesting/cypress/support/utilities");
 
 class Homepage {
     infoBox = () => cy.get('#comp-m3m4ez5c1');

@@ -1,6 +1,6 @@
 import {data} from '../support/data.js';
 import Registration from '../models/registration.js';
-import {createRandomEmail, createRandomPassword} from "../support/utilities";
+import {createRandomEmail, createRandomPassword} from "../../../ulovDomovTesting/cypress/support/utilities";
 
 describe('Registration tests for Houmy.cz', () => {
     Object.values(data.houmyData).forEach((data) => {

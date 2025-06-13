@@ -2,7 +2,7 @@ import {data} from '../support/data.js';
 import Loginpage from '../models/loginpage.js';
 import Dashboard from '../models/dashboard.js';
 import Contacts from '../models/contacts.js';
-import {createRandomEmail, createRandomName, generateRandomCzechPhoneNumber, generateValidCzechAccountNumber, generateValidICO} from '../support/utilities.js';
+import {createRandomEmail, createRandomName, generateRandomCzechPhoneNumber, generateValidCzechAccountNumber, generateValidICO} from '../../../ulovDomovTesting/cypress/support/utilities.js';
 
 const newContactData = data.houmyData[0].newContactData;
 let fullName = newContactData.firstName + ' ' + newContactData.lastName;

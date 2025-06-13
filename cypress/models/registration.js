@@ -1,5 +1,5 @@
 import Loginpage from '../models/loginpage.js';
-import {checkUrl, createStep} from "../support/utilities";
+import {checkUrl, createStep} from "../../../ulovDomovTesting/cypress/support/utilities";
 import {data} from "../support/data";
 
 const loginData = data.houmyData[0].loginpage;

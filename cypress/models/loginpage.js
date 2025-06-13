@@ -1,4 +1,4 @@
-import {checkUrl, createStep} from "../support/utilities";
+import {checkUrl, createStep} from "../../../ulovDomovTesting/cypress/support/utilities";
 import {data} from '../support/data.js';
 
 const loginData = data.houmyData[0].loginpage;
